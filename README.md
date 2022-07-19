@@ -1,6 +1,6 @@
 ﻿# Store-Computer
 - View: complete (panigation: update...)
-- Controller: complete
+- Controller: completed page link
 - Model: not yet
 ## Expected database: MongoDB
 
