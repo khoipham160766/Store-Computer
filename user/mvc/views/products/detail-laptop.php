@@ -19,11 +19,6 @@
             <h2><?php  echo $row["tensp"] ?></h2>
             <span>Thương hiệu: <?php  echo $row["thuonghieu"] ?></span>
             <p class="price"><?php  echo number_format($row["gia"], 0, ',', '.') ?></p>
-            <p class="title">Kích thước</p>
-                <select>
-                    <option selected>SSD 512GB</option>
-                    <option>SSD 256GB</option>
-                </select>
             <p class="title">Màu sắc</p>
                 <select class="selectpicker">
                     <option selected>Đen</option>

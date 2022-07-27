@@ -5,7 +5,7 @@
         public $servername = "localhost";
         public $username = "root";
         public $password = "";
-        public $dbname = "testdb";
+        public $dbname = "etechdb";
 
         function __construct(){
             $this->con = mysqli_connect($this->servername, $this->username, $this->password);

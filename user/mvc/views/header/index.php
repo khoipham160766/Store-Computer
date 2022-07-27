@@ -21,11 +21,25 @@
             <div class="div-log-in-out">
                 <div class="log-in-out">
                     <ul>
-                        <!-- <li><a href="login">ĐĂNG NHẬP</a></li>
-                        <li><a href="register">ĐĂNG KÝ</a></li> -->
+
+                        <?php
+                        if(!isset($_SESSION["email_user"]))
+                        {
+                        ?>
+
+                        <li><a href="login">ĐĂNG NHẬP</a></li>
+                        <li><a href="register">ĐĂNG KÝ</a></li>
+
+                        <?php
+                        }else if(isset($_SESSION["email_user"]))
+                        {
+                            while($row = mysqli_fetch_array($data["header"]))
+                            { 
+                        ?>
+
                         <li>
                             <a href="order" class="hover-div-user">
-                                <i class="fa-solid fa-user"></i>Xin chào, Khôi
+                                <i class="fa-solid fa-user"></i>Xin chào, <?php echo $row["last_name"] ?>
                             </a>
                             <ul class="hover-user">
                                 <li><a href="profile/profileuser" class="ml">Thông tin cá nhân</a></li>
@@ -34,6 +48,12 @@
                                 <li><a href="#">Đăng xuất</a></li>
                             </ul>
                         </li>
+
+                        <?php
+                            }
+                        }
+                        ?>
+
                         <li>1900.500.800</li>
                     </ul>
                 </div>

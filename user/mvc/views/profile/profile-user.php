@@ -1,7 +1,12 @@
+<?php
+if(isset($_SESSION["email_user"]))
+{
+    while ($row = mysqli_fetch_array($data["user_info"])){
+?>
 <div class="profile">
     <div class="profile-avatar">
-        <img class="style-avatar" src="../images/avatar-nobody.jpg">
-        <span>khoipham160701@gmail.com</span>
+        <img class="style-avatar" src="../images/avatars/<?php echo $row["avatar"] ?>">
+        <span><?php echo $row["email"] ?></span>
         <button class="change-avatar" onclick="changeAvatar()">đổi ảnh</button>
     </div>
     <div class="profile-user">
@@ -9,19 +14,19 @@
        <table>
             <tr>
                 <th>Họ tên</th>
-                <td>Phạm Trần Khôi</td>
+                <td><?php echo $row["first_name"],"&nbsp", $row["last_name"] ?></td>
             </tr>
             <tr>
                 <th>Số điện thoại</th>
-                <td>0794667091</td>
+                <td><?php echo $row["phone_number"] ?></td>
             </tr>
             <tr>
                 <th>Địa chỉ</th>
-                <td>46/6A, KP7, phường Tân Hưng Thuận, Q.12</td>
+                <td><?php echo $row["address"] ?></td>
             </tr>
             <tr>
                 <th>Giới tính</th>
-                <td>Nam</td>
+                <td><?php echo $row["gender"] ?></td>
             </tr>
             <tr>
                 <th>Mật khẩu</th>
@@ -41,12 +46,12 @@
         <div class="col-md-9 border-right style-change-form">
             <div>
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Họ và tên lót</label><input type="text" class="form-control" value=""></div>
-                    <div class="col-md-6"><label class="labels">Tên</label><input type="text" class="form-control" id="name" value=""></div>
+                    <div class="col-md-6"><label class="labels">Họ và tên lót</label><input type="text" class="form-control" value="<?php echo $row["first_name"] ?>"></div>
+                    <div class="col-md-6"><label class="labels">Tên</label><input type="text" class="form-control" id="name" value="<?php echo $row["last_name"] ?>"></div>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Số điện thoại</label><input type="text" class="form-control" id="phone-number" value=""></div>
-                    <div class="col-md-12 mt-3"><label class="labels">Địa chỉ</label><input type="text" class="form-control" value=""></div>
+                    <div class="col-md-12"><label class="labels">Số điện thoại</label><input type="text" class="form-control" id="phone-number" value="<?php echo $row["phone_number"] ?>"></div>
+                    <div class="col-md-12 mt-3"><label class="labels">Địa chỉ</label><input type="text" class="form-control" value="<?php echo $row["address"] ?>"></div>
                     <div class="col-md-12 mt-3">
                         <label class="labels">Giới tính</label>
                         <input type="radio" class="style-radio" value="Nam" name="gender" checked/><span class="style-span">Nam</span>
@@ -94,3 +99,7 @@
         </div>
     </form>
 </div>
+<?php
+    }
+}
+?>

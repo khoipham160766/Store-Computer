@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <base href="http://localhost:8080/Ecommerce/user/" />
     <link rel="shortcut icon" href="../images/mini-logo.png">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,19 +15,20 @@
     <img src="../images/logo.png" class="style-img" >
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form action="register/signup" method="post">
                 <h1>Tạo tài khoản</h1>
-                <input type="text" placeholder="Họ tên" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Mật khẩu" />
+                <input type="text" name="firstname" placeholder="Họ và tên lót" />
+                <input type="text" name="lastname" placeholder="Tên" />
+                <input type="email" name="email" placeholder="Email" />
+                <input type="password" name="password" placeholder="Mật khẩu" />
                 <input type="password" placeholder="Nhập lại mật khẩu" />
-                <input type="text" placeholder="Địa chỉ" />
-                <input type="text" placeholder="Số điện thoại" />
-                <button>Đăng ký</button>
+                <input type="text" name="address" placeholder="Địa chỉ" />
+                <input type="text" name="phonenumber" placeholder="Số điện thoại" />
+                <button type="submit">Đăng ký</button>
             </form>
         </div>
         <div class="form-container sign-in-container">
-            <form action="#">
+            <form action="register/signin" method="post">
                 <h1>Đăng nhập</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -34,8 +36,8 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>hoặc sử dụng tài khoản</span>
-                <input type="email" placeholder="Email đăng nhập..." />
-                <input type="password" placeholder="Mật khẩu..." />
+                <input type="email" name="email" placeholder="Email đăng nhập..." />
+                <input type="password" name="password" placeholder="Mật khẩu..." />
                 <a href="#">Quên mật khẩu ?</a>
                 <button>Đăng nhập</button>
             </form>
