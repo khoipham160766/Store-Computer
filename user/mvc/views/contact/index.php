@@ -8,15 +8,15 @@
     <div class="feedback">
         <h3>Đóng góp ý kiến</h3>
         <p>Nếu bạn có thắc mắc hoặc thông tin cần đóng góp cho chúng tôi, hãy gửi yêu cầu và chúng tôi sẽ liên lạc lại với bạn sớm nhất có thể</p>
-        <form>
+        <form action="contact/sendfeedback" method="post">
             <div class="form-group style-form-group">
-                <input type="email" class="form-control style-input" id="exampleFormControlInput1" placeholder="Tên của bạn">
+                <input type="text" name="name"  class="form-control style-input" id="exampleFormControlInput1" placeholder="Tên của bạn">
             </div>
             <div class="form-group style-form-group">
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Email của bạn">
+                <input type="email" name="email"  class="form-control" id="exampleFormControlInput1" placeholder="Email của bạn">
             </div>
             <div class="form-group style-form-group">
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Viết bản hồi"></textarea>
+                <textarea class="form-control" name="feedback" id="exampleFormControlTextarea1" rows="3" placeholder="Viết bản hồi"></textarea>
             </div>
             <button type="submit" class="btn-feedback">Gửi phản hồi</button>
         </form>

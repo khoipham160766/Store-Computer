@@ -19,6 +19,7 @@
             }
                 
         }
+        // -----signin
         function signin_check_email($email){
             $sql = "SELECT * FROM user WHERE email = '".$email."'";
             if(mysqli_num_rows(mysqli_query($this->con, $sql)) == 0 )
@@ -39,6 +40,39 @@
             $sql = "SELECT * FROM user WHERE email = '".$email."'";
             return mysqli_query($this->con, $sql);
         }
+        // -------change info user
+        function changeinfo($email, $firstname, $lastname, $phone, $address, $gender){
+            $sql = "UPDATE `user` SET `first_name`='".$firstname."',`last_name`='".$lastname."',`address`='".$address."',`phone_number`='".$phone."',`gender`='".$gender."' WHERE `email` = '".$email."'";
+            if(mysqli_query($this->con, $sql)){
+                return true;
+            }
+            return false;
+        }
+        // -------change password
+        function check_old_password($email, $old_password){
+            $sql = "SELECT * FROM user WHERE email = '".$email."' AND password = '".$old_password."'";
+            if(mysqli_num_rows(mysqli_query($this->con, $sql)) == 0){
+                return false;
+            }
+            return true;
+        }
+        function change_password($email, $new_password){
+            $sql = "UPDATE `user` SET `password`='".$new_password."' WHERE `email` = '".$email."'";
+            if(mysqli_query($this->con, $sql))
+            {
+                return true;
+            }
+            return false;
+        }
+        // -----------change avatar
+        function change_avatar($email, $name_img){
+            $sql = "UPDATE `user` SET `avatar`='".$name_img."' WHERE `email` = '".$email."'";
+            if(mysqli_query($this->con, $sql)){
+                return true;
+            }
+            return false;
+        }
+
     }
 
 ?>

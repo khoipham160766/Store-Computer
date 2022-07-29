@@ -1,8 +1,15 @@
+<?php
+    while( $row = mysqli_fetch_array($data["category_profile"]) )
+    {
+?>
 <div class="info-user">
-    <img src="../images/avatar-nobody.jpg">
+    <img src="../images/avatars/<?php echo $row["avatar"] ?>">
     <b>Xin chào</b>
-    <p>Phạm Trần Khôi</p>
+    <p><?php echo $row["first_name"],"&nbsp", $row["last_name"] ?></p>
 </div>
+<?php
+    }
+?>
 <ul>
     <li><a href="profile/profileuser"><i class="fa-solid fa-user icon-user"></i>Thông tin cá nhân</a></li>
     <li><a href="order"><i class="fa-solid fa-wallet icon-order"></i>Đơn hàng</a></li>

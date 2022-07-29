@@ -1,9 +1,9 @@
 <div class="header">
     <div class="top-header">
         <ul>
-            <li><a href="cart"><i class="fa-solid fa-cart-shopping icon-cart"></i><p class="quantity-cart">1</p></a></li>
+            <li><a href="cart"><i class="fa-solid fa-cart-shopping icon-cart"></i><?php if(isset($_SESSION["email_user"])) { ?><p class="quantity-cart"><?php echo $data["total_quantity_cart"] ?></p><?php } ?></a></li>
             <li><a href="#">Tìm kiếm</a></li>
-            <li><a href="profile/order">Đơn hàng</a></li>
+            <li><a href="order">Đơn hàng</a></li>
             <li><a href="contact">Liên hệ</a></li>
         </ul>
     </div>
@@ -45,7 +45,7 @@
                                 <li><a href="profile/profileuser" class="ml">Thông tin cá nhân</a></li>
                                 <li><a href="order">Đơn hàng</a></li>
                                 <li><a href="cart">Giỏ hàng</a></li>
-                                <li><a href="#">Đăng xuất</a></li>
+                                <li><a href="home/logout">Đăng xuất</a></li>
                             </ul>
                         </li>
 

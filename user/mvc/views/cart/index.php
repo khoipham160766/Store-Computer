@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION["email_user"])){
+        echo "<h6 class='not-user'>Cần đăng nhập để sử dụng chức năng này</h6>";
+    }else
+    {
+?>
 <form action="cart/buy" method="post">
     <div class="main-profile">
         <div class="main-profile-left">
@@ -25,71 +31,57 @@
                 </div>
             </div>
             <div class="cart-mid">
+                <?php
+                    if(mysqli_num_rows($data["cart_user"]) == 0){
+                        echo "<h3 class='emty-cart'>Chưa có sản phẩm nào trong giỏ hàng</h3>";
+                    }else{
+                        while( $row = mysqli_fetch_array($data["cart_user"]) )
+                        {
+                    
+                ?>
                 <div class="card-product">
                     <div class="check">
                         <input type="checkbox">
-                        <p>Điện thoại</p>
+                        <p><?php echo $row["name_category"] ?></p>
                     </div>
                     <div class="cart-title">
                         <div class="title-product">
-                            <img src="../images/products/phones/iphone-13-pro-max.jpg">
-                            <p class="content-p">iphone 13 pro max</p>
-                            <p class="type">Loại: màu bạc, 256GB</p>
+                            <img src="../images/products/phones/<?php echo $row["product_img"] ?>">
+                            <p class="content-p"><?php echo $row["name_product"] ?></p>
+                            <p class="type">Loại: <?php echo $row["type"] ?></p>
                         </div>
                         <div class="title-price">
-                            <p class="price" id="price-cart-1"><?php echo number_format('28000000', 0, ',', '.') ?></p>
+                            <p class="price" id="price-cart-1"><?php echo number_format($row["name_category"], 0, ',', '.') ?></p>
                         </div>
                         <div class="title-quantity">
                             <div class="buttons_added mt-button">
                                 <input class="minus is-form quantity-style" type="button" value="-" onclick="subquantity(1)">
-                                <input aria-label="quantity" name="quantity" class="input-qty quantity-input" max="5" min="1" id="quantity-1" type="number" value="1" onchange="test()">
+                                <input aria-label="quantity" name="quantity" class="input-qty quantity-input" max="5" min="1" id="quantity-1" type="number" value="<?php echo $row["quantity"] ?>" onchange="test()">
                                 <input class="plus is-form quantity-style" type="button" value="+" onclick="addquantity(1,5)">
                             </div>
                         </div>
                         <div class="title-total">
-                            <p class="total" id="title-total-1">29.000.000</p>
+                            <p class="total" id="title-total-1"><?php echo $row["price"] ?></p>
                         </div>
                         <div class="title-choose">
                             <a href="#" class="delete">Xóa</a>
                         </div>
                     </div>
                 </div>
-                <div class="card-product">
-                    <div class="check">
-                        <input type="checkbox">
-                        <p>Điện thoại</p>
-                    </div>
-                    <div class="cart-title">
-                        <div class="title-product">
-                            <img src="../images/products/phones/iphone-13-pro-max.jpg">
-                            <p class="content-p">iphone 13 pro max</p>
-                            <p class="type">Loại: màu bạc, 256GB</p>
-                        </div>
-                        <div class="title-price">
-                            <p class="price" id="price-cart-2"><?php echo number_format('30000000', 0, ',', '.') ?></p>
-                        </div>
-                        <div class="title-quantity">
-                            <div class="buttons_added mt-button">
-                                <input class="minus is-form quantity-style" type="button" value="-" onclick="subquantity(2)">
-                                <input aria-label="quantity" name="quantity" class="input-qty quantity-input" max="5" min="1" id="quantity-2" type="number" value="1">
-                                <input class="plus is-form quantity-style" type="button" value="+" onclick="addquantity(2,5)">
-                            </div>
-                        </div>
-                        <div class="title-total">
-                            <p class="total" id="title-total-2">29.000.000</p>
-                        </div>
-                        <div class="title-choose">
-                            <a href="#" class="delete">Xóa</a>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                        }
+                    }
+                ?>
                 
             </div>
             <div class="cart-bottom">
-                <p class="total-product">Số sản phẩm đã chọn: 8</p>
+                <p class="total-product">Số sản phẩm đã chọn: 0</p>
                 <button class="buy-now" type="submit">Mua hàng</button>
-                <p class="total-price">Tổng thanh toán: <span>21.000.000</span></p>
+                <p class="total-price">Tổng thanh toán: <span>0</span></p>
             </div>
         </div>
     </div>
 </form>
+<?php
+    }
+?>

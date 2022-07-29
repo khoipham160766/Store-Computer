@@ -103,11 +103,15 @@ $('input.input-qty').each(function() {
     let regexPhone =/((09|03|07|08|05)+([0-9]{8})\b)/g;
     if (Name === ""){
       document.getElementById("error-change-info").innerHTML="Tên không được để trống.";
+      return false;
     }else if(Phone === ""){
       document.getElementById("error-change-info").innerHTML="Số điện thoại không được để trống";
+      return false;
     }else if(regexPhone.test(Phone) == false){
       document.getElementById("error-change-info").innerHTML="Số điện thoại không hợp lệ.";
+      return false;
     }
+    return true;
   }
   // -------change password user
   function changePassword(){
@@ -141,13 +145,26 @@ $('input.input-qty').each(function() {
     let newPassWord = document.getElementById("new-password").value;
     let newPassWordAgain = document.getElementById("new-password-again").value;
     if (oldPassword === "")
+    {
       document.getElementById("error-change-password").innerHTML="Mật khẩu cũ không được để trống";
+      return false;
+    }
     else if (newPassWord === "")
+    {
       document.getElementById("error-change-password").innerHTML="Mật khẩu mới không được để trống";
+      return false;
+    }
     else if (newPassWordAgain === "")
+    {
       document.getElementById("error-change-password").innerHTML="Nhập lại mật khẩu mới.";
+      return false;
+    }
     else if(newPassWord !== newPassWordAgain)
+    {
       document.getElementById("error-change-password").innerHTML="Mật khẩu mới và nhập lại không khớp";
+      return false;
+    }
+    return true;
   }
   // -------change avatar
   function changeAvatar(){

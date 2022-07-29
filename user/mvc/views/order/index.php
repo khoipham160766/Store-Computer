@@ -1,3 +1,9 @@
+<?php
+    if(!isset($_SESSION["email_user"])){
+        echo "<h6 class='not-user'>Cần đăng nhập để sử dụng chức năng này</h6>";
+    }else
+    {
+?>
 <div class="main-profile">
     <div class="main-profile-left">
         <?php require_once "./mvc/views/profile/category-profile.php" ?>
@@ -61,3 +67,6 @@
         </div>
     </div>
 </div>
+<?php
+    }
+?>

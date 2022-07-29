@@ -20,6 +20,12 @@ body{
     margin: 0 10% 0 10%;
     margin-top: 10px;
 }
+.not-user{
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0 10px 0;
+}
 /* ----------home-------------
    -                         -
    -                         -
@@ -443,12 +449,15 @@ body{
     margin-top: 5px;
 }
 .blog .blog-content .blog-content-card .style-button-blog{
+    text-decoration: none;
+    color: #000000;
     font-size: 13px;
     float: left;
     margin-top: 10px;
-    width: 130px;
-    height: 40px;
+    cursor: pointer;
+    border: 1px solid #000000;
     background-color: #FFFFFF;
+    padding: 10px 20px 10px 20px;
 }
 .blog .blog-content .blog-content-card .style-button-blog:hover{
     color: #ffffff;
@@ -1309,6 +1318,13 @@ body{
     width: 100%;
     margin-top: 10px;
 }
+.cart-mid .emty-cart{
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 17px 0 10px 0;
+    font-size: 16px;
+}
 .cart-mid .card-product .check{
     float: left;
     width: 100%;
@@ -1599,8 +1615,11 @@ body{
     margin-left: 30px;
     font-size: 13px;
 }
-.main-buy .payments .method-pay input[type="radio"]:checked,
-[type="radio"]:not(:checked) {
+.main-buy .payments .method-pay input[type="radio"]:checked {
+    position: absolute;
+    left: -9999px;
+}
+.main-buy .payments .method-pay input[type="radio"]:not(:checked) {
     position: absolute;
     left: -9999px;
 }
