@@ -46,12 +46,12 @@
                     </div>
                     <div class="cart-title">
                         <div class="title-product">
-                            <img src="../images/products/phones/<?php echo $row["product_img"] ?>">
+                            <img src="../images/products/<?php if($row["id_category"] == 1){ echo "phones";}else if($row["id_category"] == 2){echo "laptops";}else if($row["id_category"] == 3){echo "accessories";} ?>/<?php echo $row["product_img"] ?>">
                             <p class="content-p"><?php echo $row["name_product"] ?></p>
                             <p class="type">Loại: <?php echo $row["type"] ?></p>
                         </div>
                         <div class="title-price">
-                            <p class="price" id="price-cart-1"><?php echo number_format($row["name_category"], 0, ',', '.') ?></p>
+                            <p class="price" id="price-cart-1"><?php echo number_format($row["price"], 0, ',', '.') ?></p>
                         </div>
                         <div class="title-quantity">
                             <div class="buttons_added mt-button">

@@ -14,6 +14,26 @@
             }
             return $id;
         }
+        function get_sub_category(){
+            $sql = "SELECT * FROM sub_category";
+            $result = mysqli_query($this->con, $sql);
+            $sub_category = array();
+            while($row = mysqli_fetch_array($result))
+            {
+                $sub_category[] = $row;
+            }
+            return $sub_category;
+        }
+        function get_fold_img(){
+            $fold = array();
+            $sql = "SELECT * FROM category";
+            $result = mysqli_query($this->con, $sql);
+            while($row = mysqli_fetch_array($result))
+            {
+                $fold[] = $row;
+            }
+            return $fold;
+        }
     }
 
 ?>

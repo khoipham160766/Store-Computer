@@ -131,16 +131,12 @@ body{
 }
 .accessories .new-accessories{
     width: 100%;
-    height: 200px;
     float: left;
-    background-color: aqua;
     margin-top: 12px;
 }
 .accessories .sell-accessories{
     width: 100%;
-    height: 200px;
     float: left;
-    background-color: aquamarine;
     margin-top: 12px;
 }
 .mini-title-content{
@@ -653,6 +649,16 @@ body{
     font-size: 17px;
     width: 30%;
     float: left;
+}
+.main-content-product .main-content-product-all{
+    float: left;
+    width: 100%;
+}
+.main-content-product-all .product-main{
+    display: inline-block;
+    width: 31%;
+    margin-left: 1.5%;
+    margin-top: 20px;
 }
 /* ----------detail----------
    -                         -

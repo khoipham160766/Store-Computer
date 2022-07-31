@@ -1,36 +1,33 @@
-
-<form action="products/buylaptop" method="POST">
+<?php
+    while( $row = mysqli_fetch_array($data["detail"]))
+    {
+?>
+<form action="products/addcart/<?php echo $row["id_category"] ?>/<?php echo $row["id_product"] ?>" method="POST">
 <div class="detail">
     <h3>Chi tiết</h3>
     <!-- top -->
     <div class="top-detail">
         <div class="left">
             <div class="main-img">
-                <img class="img-phone" src="../images/products/accessories/hydrus-pj.jpg">
+                <img class="img-phone" src="../images/products/accessories/<?php echo $row["img_product"] ?>">
             </div>
             <div class="mini-img">
-                <img src="../images/products/accessories/hydrus-pj.jpg">
+                <img src="../images/products/accessories/<?php echo $row["img_product"] ?>">
             </div>
         </div>
         <div class="right">
-            <h2>Iphone 13 pro max</h2>
-            <span>Thương hiệu: Iphone</span>
-            <p class="price"><?php  echo number_format('32990000', 0, ',', '.') ?></p>
-            <p class="title">Kích thước</p>
-                <select>
-                    <option selected>SSD 512GB</option>
-                    <option>SSD 256GB</option>
-                </select>
+            <h2><?php echo $row["name_product"] ?></h2>
+            <span>Thương hiệu: <?php echo $row["type_name"] ?></span>
+            <p class="price"><?php  echo number_format($row["price"], 0, ',', '.') ?></p>
             <p class="title">Màu sắc</p>
                 <select class="selectpicker">
-                    <option selected>Đen</option>
-                    <option>Trắng</option>
+                    <option selected><?php echo $row["color"] ?></option>
                 </select></br></br>
-            <input type="hidden" name="basequantity" value="5">
-            <span>còn hàng: 21</span></br>
+            <input type="hidden" name="basequantity" value="<?php echo $row["quantity"] ?>">
+            <span>còn hàng: <?php echo $row["quantity"] ?></span></br>
             <div class="buttons_added">
                 <input class="minus is-form" type="button" value="-">
-                <input aria-label="quantity" name="quantity" class="input-qty" max="5" min="1" name="" type="number" value="1">
+                <input aria-label="quantity" name="quantity" class="input-qty" max="<?php echo $row["quantity"] ?>" min="1" name="" type="number" value="1">
                 <input class="plus is-form" type="button" value="+">
             </div></br>
             <button type="submit" class="add-button"><i class="fa-solid fa-cart-shopping"></i>THÊM VÀO GIỎ</button>
@@ -40,7 +37,7 @@
     <!-- mid -->
     <div class="mid-detail">
         <h4><strong>Thông tin chi tiết</strong></h4>
-        <table>
+        <!-- <table>
             <tr>
                 <th>Model</th>
                 <td>Iphone 13 Pro Max</td>
@@ -89,13 +86,16 @@
                 <th>Sạc nhanh</th>
                 <td>20 W</td>
             </tr>
-        </table>
+        </table> -->
     </div>
     <!-- bottom -->
     <div class="bottom-detail">
         <h4><strong>Mô tả sản phẩm</strong></h4>
-        <p>update...</p>
+        <?php echo $row["decription"] ?>
     </div>
 </div>
 </form>
+<?php 
+    }
+?>
 <!-- end php -->
