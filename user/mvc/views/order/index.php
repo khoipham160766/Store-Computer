@@ -34,12 +34,12 @@
                         <p>x1</p>
                     </div>
                     <div class="price-product-card">
-                        <p class="price-sale">6.000</p>
-                        <p class="price-basic">10.000</p>
-                        <p class="price">10.000</p>
+                        <!-- <p class="price-sale">6.000</p>
+                        <p class="price-basic">10.000</p> -->
+                        <p class="price">28.390.000</p>
                     </div>
                 </div>
-                <div class="mid-product-card">
+                <!-- <div class="mid-product-card">
                     <a href="#">
                         <img src="../images/products/phones/iphone-13-pro-max.jpg">
                     </a>
@@ -53,11 +53,11 @@
                         <p class="price-basic">10.000</p>
                         <p class="price">10.000</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="bottom">
                 <div class="price-total">
-                    <p>12.000</p>
+                    <p>28.390.000</p>
                     <span>Tổng tiền:</span>
                     <i class="fa-solid fa-money-bill"></i>
                 </div>
